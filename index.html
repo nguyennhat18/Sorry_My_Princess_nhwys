@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi Như Ý - Lời Xin Lỗi Chân Thành Từ Trái Tim ❤️</title>
+  <meta name="description"
+    content="Trang web gửi trọn lời xin lỗi chân thành và tình cảm sâu sắc nhất đến người yêu Như Ý.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Canvas for Falling Petals & Glowing Stardust -->
+  <canvas id="petal-canvas"></canvas>
+
+  <!-- Sound Toggle Control Floating Button -->
+  <div class="audio-control-container">
+    <button id="music-btn" class="glass-pill-btn" aria-label="Bật/Tắt Nhạc Dịu Dàng">
+      <span class="music-icon" id="music-icon">🎵</span>
+      <span class="music-text" id="music-text">Bật giai điệu ấm áp</span>
+      <div class="sound-wave" id="sound-wave">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- STAGE 1: Interactive Wax-Sealed Envelope (Opening Screen) -->
+  <section id="envelope-screen" class="stage-screen active">
+    <div class="envelope-wrapper">
+      <div class="sparkle-glow"></div>
+
+      <div class="envelope-box" id="envelope-box">
+        <div class="envelope-flap"></div>
+        <div class="envelope-pocket"></div>
+        <div class="wax-seal" id="wax-seal">
+          <span class="seal-heart">💌</span>
+          <span class="seal-hint">Chạm để mở</span>
+        </div>
+        <div class="letter-preview">
+          <p class="preview-recipient">Gửi nửa còn lại của anh: <strong>Như Ý 🌸</strong></p>
+        </div>
+      </div>
+
+      <div class="envelope-invitation">
+        <h1 class="invitation-title">Có một bức thư chân thành...</h1>
+        <p class="invitation-subtitle">Từ tận đáy lòng, anh muốn gửi trọn những điều này đến Như Ý</p>
+        <button id="open-envelope-btn" class="btn-primary pulse-btn">
+          <span>Mở Thư Ngay Em Nhé</span>
+          <span class="btn-sparkle">✨</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 2: Main Apology Content (Revealed after opening) -->
+  <main id="letter-content" class="main-container hidden">
+
+    <!-- Hero / Apology Card -->
+    <header class="hero-section">
+      <div class="mascot-card">
+        <div class="photo-frame">
+          <img src="assets/apology_bear.jpg" alt="Bé gấu cầm hoa hồng xin lỗi Như Ý" class="mascot-img"
+            id="apology-mascot">
+          <div class="photo-tag">Anh sai rồi... Hứa gánh Như Ý suốt đời (nếu được Ý cho) 🥺</div>
+        </div>
+      </div>
+
+      <div class="hero-text-content">
+        <div class="badge-pill">🌸 Gửi riêng Như Ý của anh</div>
+        <h1 class="hero-title">Anh Xin Lỗi Như Ý Thật Nhiều!</h1>
+        <p class="hero-quote">"Game chỉ là ảo thôi, còn Như Ý mới là niềm vui thực của anh... Vậy mà anh lại
+          đi so sánh làm em phải buồn và dỗi anh."</p>
+
+        <div class="heartbeat-widget" id="heartbeat-widget">
+          <div class="beating-heart">❤️</div>
+          <div class="heartbeat-info">
+            <span class="heartbeat-status">Nhịp tim ăn năn: <strong id="bpm-val">128</strong> BPM</span>
+            <span class="heartbeat-caption">Chạm vào tim để gửi tình yêu đến Như Ý</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Detailed Sincere Letter -->
+    <section class="letter-paper-card">
+      <div class="letter-header-decor">
+        <span class="corner-rose left">🌹</span>
+        <span class="letter-date" id="letter-date">Gửi Như Ý - 'Đồng đội' quan trọng nhất cuộc đời anh</span>
+        <span class="corner-rose right">🌹</span>
+      </div>
+
+      <div class="letter-body">
+        <p class="letter-paragraph highlight-first">
+          <strong>Như Ý ơi,</strong>
+        </p>
+        <p class="letter-paragraph">
+          Hôm nay ngồi ngẫm lại, anh thấy mình quá vô tâm và đáng trách. Chơi game vốn dĩ là để hai đứa mình có những
+          phút giây vui vẻ bên nhau, cùng cười đùa và thư giãn sau những giờ mệt mỏi, vậy mà anh lại hơn thua, buột
+          miệng đi so sánh em lúc chơi game, làm cho Như Ý của anh phải chạnh lòng, buồn và dỗi anh.
+        </p>
+        <p class="letter-paragraph">
+          Anh biết khi vào game cùng anh, em chỉ muốn được ở bên cạnh và chia sẻ niềm vui với anh thôi. Game thắng hay
+          thua chẳng có chút ý nghĩa nào nếu nó làm người con gái anh yêu phải phiền lòng. Không một ai trên đời này có
+          thể so sánh được với Như Ý cả — em luôn là điều đặc biệt, đáng yêu và quý giá nhất đối với anh.
+        </p>
+        <p class="letter-paragraph">
+          Anh đã tự kiểm điểm rất nhiều và hứa từ nay sẽ không bao giờ so sánh hay nói những lời thiếu tinh tế làm em
+          dỗi nữa. Dù trong game hay ngoài đời thực, anh hứa sẽ luôn là người đồng hành, bảo vệ và 'gánh' Như Ý mọi lúc
+          mọi nơi!
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <span>Mãi thương em,</span>
+        <span class="signature-name">'chatGPT của em' ❤️</span>
+      </div>
+    </section>
+
+    <!-- Sincere Promises (Interactive Flip Cards) -->
+    <section class="promises-section">
+      <h2 class="section-heading">
+        <span class="heading-icon">✨</span>
+        3 Điều Anh Hứa Sẽ Sửa Đổi Vì Như Ý
+        <span class="heading-icon">✨</span>
+      </h2>
+      <p class="section-sub">Chạm vào từng tấm thẻ để xem lời hứa sắt son của anh nhé</p>
+
+      <div class="promise-cards-grid">
+        <div class="promise-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-badge">01</div>
+              <div class="promise-icon">🎮🛡️</div>
+              <h3 class="promise-title">Chơi Game Yêu Thương</h3>
+              <p class="promise-peek">Chạm để mở lời hứa</p>
+            </div>
+            <div class="card-face card-back">
+              <h3>Không Hơn Thua - Luôn Gánh Em</h3>
+              <p>Anh hứa tuyệt đối không bao giờ so sánh Như Ý với ai, vào game là để bảo vệ, nhường mạng và mang lại
+                tiếng cười cho em!</p>
+              <span class="card-seal">🌸 Đã đóng dấu cam kết</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="promise-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-badge">02</div>
+              <div class="promise-icon">🫂🌷</div>
+              <h3 class="promise-title">Thấu Hiểu Cảm Xúc</h3>
+              <p class="promise-peek">Chạm để mở lời hứa</p>
+            </div>
+            <div class="card-face card-back">
+              <h3>Không Để Em Buồn & Dỗi</h3>
+              <p>Sẽ luôn nhạy bén và để ý từng cảm xúc của Như Ý, dỗ dành em ngay lập tức và không bao giờ để em phải
+                chạnh lòng.</p>
+              <span class="card-seal">🌸 Đã đóng dấu cam kết</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="promise-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-badge">03</div>
+              <div class="promise-icon">👑💎</div>
+              <h3 class="promise-title">Như Ý Là Nhất anh là nhì :DD</h3>
+              <p class="promise-peek">Chạm để mở lời hứa</p>
+            </div>
+            <div class="card-face card-back">
+              <h3>Duy Nhất Trong Lòng Anh</h3>
+              <p>Đối với 'chatGPT của em', Như Ý luôn là cô công chúa đáng yêu nhất, độc nhất vô nhị và không ai sánh
+                bằng!</p>
+              <span class="card-seal">🌸 Đã đóng dấu cam kết</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Apology Gift Box & Vouchers -->
+    <section class="vouchers-section">
+      <h2 class="section-heading">
+        <span class="heading-icon">🎁</span>
+        Bộ Phiếu Chuộc Tội Đặc Quyền Của Như Ý
+        <span class="heading-icon">🎁</span>
+      </h2>
+      <p class="section-sub">Có hiệu lực trọn đời, chỉ cần Như Ý dùng là anh thực hiện ngay 100%!</p>
+
+      <div class="vouchers-container">
+        <div class="voucher-ticket">
+          <div class="ticket-left">
+            <span class="ticket-tag">VOUCHER 01</span>
+            <div class="ticket-icon">🍧🧋</div>
+          </div>
+          <div class="ticket-center">
+            <h4 class="ticket-title">Một Chuyến Food Tour Theo Ý Như Ý</h4>
+            <p class="ticket-desc">Thèm trà sữa, ốc, lẩu hay bất kỳ món gì ngon, anh đưa đi ngay và thanh toán toàn bộ
+              không một lời than thở!</p>
+          </div>
+          <div class="ticket-right">
+            <button class="redeem-btn" onclick="redeemCoupon(this, 'Food Tour')">Đóng Dấu 🌸</button>
+          </div>
+        </div>
+
+        <div class="voucher-ticket">
+          <div class="ticket-left">
+            <span class="ticket-tag">VOUCHER 02</span>
+            <div class="ticket-icon">🛵💨</div>
+          </div>
+          <div class="ticket-center">
+            <h4 class="ticket-title">Tài Xế Riêng & Đi Dạo Hóng Gió</h4>
+            <p class="ticket-desc">Đưa đón đi bất cứ đâu, chở Như Ý ngắm phố phường, hóng gió đêm và tâm tình thủ thỉ cả
+              buổi tối.</p>
+          </div>
+          <div class="ticket-right">
+            <button class="redeem-btn" onclick="redeemCoupon(this, 'Tài Xế')">Đóng Dấu 🌸</button>
+          </div>
+        </div>
+
+        <div class="voucher-ticket">
+          <div class="ticket-left">
+            <span class="ticket-tag">VOUCHER 03</span>
+            <div class="ticket-icon">🥺🧸</div>
+          </div>
+          <div class="ticket-center">
+            <h4 class="ticket-title">Quyền Năng Bắt Nạt & Được Cưng Chiều</h4>
+            <p class="ticket-desc">Được dỗi, được nhõng nhẽo, được sai vặt và bắt anh dỗ dành vô điều kiện mỗi khi Như Ý
+              muốn.</p>
+          </div>
+          <div class="ticket-right">
+            <button class="redeem-btn" onclick="redeemCoupon(this, 'Cưng Chiều')">Đóng Dấu 🌸</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Forgiveness Decision Zone -->
+    <section class="decision-section" id="decision-zone">
+      <div class="decision-card">
+        <div class="bear-avatar-small">
+          <span class="bubble-thought">Tha lỗi cho anh nha bé Như Ý... 🥺</span>
+          <span class="avatar-emoji">🐻👉👈</span>
+        </div>
+
+        <h2 class="decision-title">Như Ý ơi... Em tha thứ cho anh nhé?</h2>
+        <p class="decision-desc">Anh hứa từ nay chơi game chỉ để dỗ dành và bảo vệ Như Ý thôi, tuyệt đối không bao giờ
+          so sánh làm em buồn hay dỗi nữa đâu!</p>
+
+        <div class="action-buttons-group">
+          <button id="forgive-yes-btn" class="btn-forgive-yes">
+            <span class="btn-heart-icon">💖</span>
+            <span class="btn-text">Dạ tha lỗi cho anh nè!</span>
+            <span class="btn-subtext">(Bấm vào đây để làm anh vui nhất quả đất)</span>
+          </button>
+
+          <button id="forgive-no-btn" class="btn-forgive-no">
+            <span>Hông, còn giận lắm! 😤</span>
+          </button>
+        </div>
+
+        <p id="funny-plea" class="funny-plea hidden"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STAGE 3: Massive Happy Celebration Modal / Screen (When Forgiven) -->
+  <div id="celebration-modal" class="modal-backdrop hidden">
+    <div class="celebration-card">
+      <div class="celebration-particles"></div>
+
+      <div class="celebration-badge">🎉 NHƯ Ý ĐÃ THA LỖI RỒI! 🎉</div>
+
+      <div class="celebration-image-box">
+        <img src="assets/happy_bears.jpg" alt="Hai bé gấu ôm nhau hạnh phúc rạng ngời" class="happy-bears-img">
+        <div class="sparkle-orbit">✨</div>
+      </div>
+
+      <h2 class="celebration-title">Cảm Ơn Công Chúa Như Ý Của Anh! ❤️</h2>
+
+      <p class="celebration-text">
+        Cảm ơn em vì đã rộng lượng tha thứ cho anh. Anh thương và trân trọng Như Ý nhất trên đời!<br>
+        Bây giờ anh chỉ muốn chạy ngay đến bên em để ôm em thật chặt và đền bù cho em thôi! 🥰
+      </p>
+
+      <div class="celebration-actions">
+        <a id="share-zalo-btn" href="#" target="_blank" class="btn-primary celebration-btn">
+          <span>Báo Cho Anh Biết Qua Tin Nhắn 💌</span>
+        </a>
+        <button id="replay-btn" class="btn-secondary">
+          <span>Xem lại lời xin lỗi 🔄</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

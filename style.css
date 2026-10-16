@@ -169,8 +169,8 @@ body {
 }
 
 .envelope-box {
-  width: 320px;
-  height: 220px;
+  width: var(--envelope-width, 320px);
+  height: var(--envelope-height, 220px);
   background: linear-gradient(145deg, #fff7f9, #ffe4eb);
   border-radius: 16px;
   position: relative;
@@ -194,9 +194,9 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-left: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-top: 120px solid #fecdd3;
+  border-left: var(--envelope-half, 160px) solid transparent;
+  border-right: var(--envelope-half, 160px) solid transparent;
+  border-top: calc(var(--envelope-height, 220px) * 0.55) solid #fecdd3;
   transform-origin: top;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 5;
@@ -208,9 +208,9 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-left: 160px solid #fff1f4;
-  border-right: 160px solid #fff1f4;
-  border-bottom: 120px solid #ffe4eb;
+  border-left: var(--envelope-half, 160px) solid #fff1f4;
+  border-right: var(--envelope-half, 160px) solid #fff1f4;
+  border-bottom: calc(var(--envelope-height, 220px) * 0.55) solid #ffe4eb;
   border-radius: 0 0 14px 14px;
   z-index: 4;
 }
@@ -1112,64 +1112,461 @@ body {
 }
 
 /* ==========================================
-   RESPONSIVENESS (MOBILE FRIENDLY)
+   RESPONSIVENESS (MOBILE & TABLET OPTIMIZED)
    ========================================== */
+
+/* Tablets & Small Laptops (<= 868px) */
+@media (max-width: 868px) {
+  :root {
+    --envelope-width: min(300px, 85vw);
+    --envelope-half: calc(var(--envelope-width) / 2);
+    --envelope-height: 210px;
+  }
+
+  .main-container {
+    padding: 70px 18px 45px;
+  }
+
+  .promise-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
+  :root {
+    --envelope-width: min(290px, 86vw);
+    --envelope-half: calc(var(--envelope-width) / 2);
+    --envelope-height: 200px;
+  }
+
+  body {
+    font-size: 15px;
+    padding-bottom: env(safe-area-inset-bottom, 15px);
+  }
+
+  /* Audio Pill Control */
+  .audio-control-container {
+    top: 14px;
+    right: 14px;
+  }
+
+  .glass-pill-btn {
+    padding: 7px 13px;
+    font-size: 0.8rem;
+    gap: 7px;
+  }
+
+  .music-text {
+    font-size: 0.78rem;
+  }
+
+  .sound-wave {
+    height: 12px;
+  }
+
+  /* Stage 1: Envelope Screen */
+  .stage-screen {
+    padding: 20px 14px;
+  }
+
+  .sparkle-glow {
+    width: 280px;
+    height: 280px;
+  }
+
+  .invitation-title {
+    font-size: 1.7rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .invitation-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .btn-primary {
+    padding: 14px 26px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 290px;
+  }
+
+  /* Stage 2: Main Layout */
+  .main-container {
+    padding: 60px 14px 40px;
+  }
+
+  /* Hero Section */
   .hero-section {
     flex-direction: column;
-    padding: 30px 22px;
+    padding: 26px 16px;
     text-align: center;
-    gap: 24px;
+    gap: 22px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+
+  .mascot-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  .photo-frame {
+    max-width: 230px;
+    padding: 10px 10px 16px;
+    transform: rotate(-1.5deg);
+  }
+
+  .mascot-img {
+    width: 210px;
+    height: 210px;
+  }
+
+  .photo-tag {
+    font-size: 1.08rem;
+    margin-top: 10px;
+  }
+
+  .badge-pill {
+    font-size: 0.75rem;
+    padding: 5px 12px;
   }
 
   .hero-title {
-    font-size: 1.95rem;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .hero-quote {
+    font-size: 1.15rem;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+
+  .heartbeat-widget {
+    padding: 10px 14px;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .beating-heart {
+    font-size: 1.8rem;
+  }
+
+  .heartbeat-status {
+    font-size: 0.88rem;
+  }
+
+  .heartbeat-caption {
+    font-size: 0.78rem;
+  }
+
+  /* Letter Paper Card */
+  .letter-paper-card {
+    padding: 28px 16px;
+    margin-bottom: 35px;
+    border-radius: 16px;
+  }
+
+  .letter-header-decor {
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+
+  .corner-rose {
+    font-size: 1.2rem;
+  }
+
+  .letter-date {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .letter-body {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .letter-paragraph {
+    margin-bottom: 16px;
+    text-indent: 16px;
+  }
+
+  .letter-paragraph.highlight-first {
+    font-size: 1.25rem;
+    text-indent: 0;
+  }
+
+  .signature-name {
+    font-size: 1.65rem;
+  }
+
+  /* Promises Section */
+  .promises-section {
+    margin-bottom: 45px;
+  }
+
+  .section-heading {
+    font-size: 1.55rem;
+    line-height: 1.3;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .section-sub {
+    font-size: 0.9rem;
+    margin-bottom: 22px;
   }
 
   .promise-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .promise-card {
-    height: 270px;
+    height: 275px;
+  }
+
+  .card-face {
+    padding: 20px 16px;
+  }
+
+  .promise-icon {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+  }
+
+  .promise-title {
+    font-size: 1.15rem;
+  }
+
+  .card-back h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .card-back p {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .card-seal {
+    font-size: 0.8rem;
+  }
+
+  /* Vouchers Section */
+  .vouchers-section {
+    margin-bottom: 45px;
+  }
+
+  .vouchers-container {
+    gap: 14px;
   }
 
   .voucher-ticket {
     flex-direction: column;
     text-align: center;
+    border-radius: 16px;
   }
 
   .ticket-left {
     width: 100%;
     border-right: none;
     border-bottom: 2px dashed #f472b6;
-    padding: 16px;
+    padding: 14px 12px;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .ticket-tag {
+    font-size: 0.7rem;
+  }
+
+  .ticket-icon {
+    font-size: 1.8rem;
+    margin-top: 0;
   }
 
   .ticket-center {
     text-align: center;
-    padding: 20px;
+    padding: 14px 16px;
+  }
+
+  .ticket-title {
+    font-size: 1.08rem;
+    margin-bottom: 4px;
+  }
+
+  .ticket-desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .ticket-right {
-    padding-bottom: 20px;
+    padding: 0 16px 14px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .redeem-btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px 0;
+    font-size: 0.92rem;
+  }
+
+  /* Decision Zone */
+  .decision-section {
+    margin-bottom: 40px;
+  }
+
+  .decision-card {
+    padding: 32px 16px;
+    border-radius: 20px;
+  }
+
+  .bubble-thought {
+    font-size: 0.88rem;
+    padding: 6px 14px;
+  }
+
+  .avatar-emoji {
+    font-size: 2.3rem;
   }
 
   .decision-title {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .decision-desc {
+    font-size: 0.92rem;
+    margin-bottom: 26px;
+    padding: 0 6px;
   }
 
   .action-buttons-group {
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
+    align-items: center;
+    min-height: 130px;
+  }
+
+  .btn-forgive-yes {
+    width: 100%;
+    max-width: 310px;
+    padding: 15px 18px;
+  }
+
+  .btn-forgive-yes .btn-text {
+    font-size: 1.1rem;
+  }
+
+  .btn-forgive-yes .btn-subtext {
+    font-size: 0.74rem;
   }
 
   .btn-forgive-no {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
+    padding: 12px 18px;
+    font-size: 0.92rem;
   }
 
-  .letter-paper-card {
-    padding: 30px 20px;
+  .funny-plea {
+    font-size: 1.25rem;
+    margin-top: 18px;
+  }
+
+  /* Celebration Modal */
+  .modal-backdrop {
+    padding: 14px;
+  }
+
+  .celebration-card {
+    padding: 28px 18px;
+    border-radius: 22px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .celebration-badge {
+    font-size: 0.78rem;
+    padding: 6px 16px;
+    margin-bottom: 14px;
+  }
+
+  .celebration-image-box {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 16px;
+  }
+
+  .celebration-title {
+    font-size: 1.55rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .celebration-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .celebration-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .celebration-btn,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra Small Phones (<= 380px, e.g. iPhone SE, smaller screens) */
+@media (max-width: 380px) {
+  :root {
+    --envelope-width: 265px;
+    --envelope-half: 132.5px;
+    --envelope-height: 185px;
+  }
+
+  .music-text {
+    display: none; /* Keep clean icon only on extremely narrow screens */
+  }
+
+  .glass-pill-btn {
+    padding: 8px 10px;
+  }
+
+  .invitation-title {
+    font-size: 1.5rem;
+  }
+
+  .mascot-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .decision-title {
+    font-size: 1.4rem;
   }
 }

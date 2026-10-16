@@ -379,11 +379,13 @@ function initRunawayButton() {
   let yesScale = 1;
 
   function dodgeButton(e) {
-    if (e) e.preventDefault();
+    if (e && e.type === 'touchstart') {
+      e.preventDefault();
+    }
     dodgeCount++;
 
-    // Grow the YES button to make it irresistible
-    yesScale += 0.07;
+    // Grow the YES button gently to make it irresistible
+    yesScale = Math.min(1.25, yesScale + 0.05);
     yesBtn.style.transform = `scale(${yesScale})`;
 
     // Pick random text for funny plea
@@ -392,10 +394,11 @@ function initRunawayButton() {
       funnyPlea.textContent = playfulPleas[(dodgeCount - 1) % playfulPleas.length];
     }
 
-    // Move NO button away within reasonable bounds
-    const maxOffset = Math.min(160, window.innerWidth / 3);
+    // Move NO button away within reasonable bounds without going off-screen on phones
+    const isMobile = window.innerWidth <= 768;
+    const maxOffset = isMobile ? Math.min(45, window.innerWidth * 0.14) : Math.min(120, window.innerWidth / 4);
     const randomX = (Math.random() - 0.5) * maxOffset * 2;
-    const randomY = (Math.random() - 0.5) * 80;
+    const randomY = (Math.random() - 0.5) * (isMobile ? 35 : 70);
 
     noBtn.style.position = 'relative';
     noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
